@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja - Restaurante</title>
+    <link rel="stylesheet" href="/public/css/Caja.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Menú del Día</h2>
+        <div id="menu-container"></div>
+
+        <h3>Agregar Producto al Menú</h3>
+        <form id="formMenu" class="form-menu">
+            <label for="nombre-producto">Nombre del Producto:</label>
+            <input type="text" id="nombre-producto" required><br>
+            
+            <label for="tipo-producto">Tipo:</label>
+            <select id="tipo-producto" required>
+                <option value="plato">Plato</option>
+                <option value="bebida">Bebida</option>
+                <option value="trago">Trago</option>
+            </select><br>
+    
+            <label for="precio-producto">Precio:</label>
+            <input type="number" id="precio-producto" required><br>
+    
+            <label for="stock-producto">Stock:</label>
+            <input type="number" id="stock-producto" required><br>
+    
+            <button type="submit">Agregar Producto</button>
+        </form>
+    
+        <h3>Menú Actual</h3>
+        <div id="menu-del-dia"></div>
+
+        <h2>Órdenes Pendientes</h2>
+        <div id="ordenes-container"></div>
+
+        <h2>Generar Reporte</h2>
+        <input type="date" id="fecha-reporte">
+        <button onclick="generarReporte()">Generar Reporte</button>
+        <div id="reporte-container"></div>
+    </div>
+<script src="/public/js/cajero.js"></script>
+</body>
+</html>

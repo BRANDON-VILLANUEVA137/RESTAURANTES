@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap">
+    <link rel="stylesheet" href="/public/css/metodo_pago.css">
+</head>
+<body>
+
+    <div class="detalles-pedido">
+        <h2>Detalles del Pedido</h2>
+        <p><strong>ID del Pedido:</strong> <span id="id_pedido_text"></span></p>
+        <p><strong>Mesa:</strong> <span id="mesa_text"></span></p>
+        <p><strong>Productos:</strong> <span id="productos_text"></span></p>
+        <p><strong>Total a Pagar:</strong> $<span id="total_text"></span></p>
+    </div>
+
+    <form id="form-pago">
+        <div class="contenedor">
+            <h2>Selecciona el Método de Pago</h2>
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="tel" id="telefono" placeholder="Ej: +573001234567" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" placeholder="Ej: ejemplo@correo.com" required>
+
+            <div class="contenedor-botones">
+                <button type="button" class="btn-pago" data-metodo="Efectivo">Efectivo</button>
+                <button type="button" class="btn-pago" data-metodo="Tarjeta">Tarjeta</button>
+                <button type="button" class="btn-pago" data-metodo="Nequi">Nequi</button>
+                <button type="button" class="btn-pago" data-metodo="Daviplata">Daviplata</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const idPedido = urlParams.get('id_pedido');
+            const total = urlParams.get('total');
+            const mesa = urlParams.get('mesa');
+            const productos = JSON.parse(decodeURIComponent(urlParams.get('productos')));
+
+            document.getElementById("id_pedido_text").textContent = idPedido;
+            document.getElementById("mesa_text").textContent = mesa;
+            document.getElementById("total_text").textContent = total;
+
+            const productosContainer = document.getElementById("productos_text");
+            productos.forEach(producto => {
+                productosContainer.innerHTML += `<p>${producto.nombre} - $${producto.precio}</p>`;
+            });
+
+            document.querySelectorAll(".btn-pago").forEach(button => {
+                button.addEventListener("click", async () => {
+                    const metodoPago = button.getAttribute("data-metodo");
+                    const telefono = document.getElementById("telefono").value;
+                    const correo = document.getElementById("correo").value;
+                    await generarFactura(idPedido, total, metodoPago, telefono, correo);
+                });
+            });
+        });
+
+        async function generarFactura(id_pedido, total, metodoPago, telefono, correo) {
+    try {
+        const response = await fetch("http://localhost:3000/facturas/pdf", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id_pedido, metodo_pago: metodoPago, total, telefono, correo })
+        });
+
+        if (!response.ok) {
+            throw new Error("No se pudo generar el PDF");
+        }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `factura_${id_pedido}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+
+        alert(`Factura generada y descargada para ${correo}.`);
+    } catch (error) {
+        alert("Error generando la factura. Inténtalo de nuevo.");
+        console.error("Error generando factura:", error);
+    }
+}
+
+    </script>
+
+</body>
+</html>

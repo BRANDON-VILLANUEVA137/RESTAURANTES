@@ -1,0 +1,58 @@
+body {
+    background-color: bisque;
+    font-family: Arial, sans-serif; /* Fuente más estilizada */
+}
+
+.seccion-container {
+    display: flex;
+    justify-content: center; /* Centra los elementos */
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+
+div {
+    text-align: center;
+}
+
+div a {
+    display: block;
+    padding: 20px; /* Ajustado para evitar excesos */
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    border: #000 solid 4px;
+    border-radius: 10px;
+}
+
+a:hover {
+    color: #fff;
+}
+
+div.cocina, div.mesero, div.caja {
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados para mejor estética */
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer; /* Indica que es interactivo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #000 solid 5px;
+}
+
+div.cocina:hover, div.mesero:hover, div.caja:hover {
+    background: #000;
+    border: double 9px #fff;
+
+}
+
+div.cocina:hover a, div.mesero:hover a, div.caja:hover a {
+    color: #fff;
+    border: solid #fff;
+}
+
+img {
+    padding: 10px;
+    width: 100%;
+    max-width: 320px; 
+    border-radius: 30px; }

@@ -1,0 +1,41 @@
+.boton-mesa {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: Black ;
+    color: #fff;
+    border-radius: 240px;
+}
+
+.Container-bottons{
+    border: 12px solid #000;
+}
+
+.boton-mesa:hover{
+    background-color:chocolate;
+    color: #000;
+} 
+.imagen{
+
+    width:120px;
+    border-radius: 59%;
+    border: 5px solid #d6cb99 ;
+}
+
+body{
+    padding: 23px;
+    background-color: antiquewhite;
+    display: grid;
+    text-align: center;
+    border: 10px dashed #000;
+}
+
+
+#mensaje-pedido {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}

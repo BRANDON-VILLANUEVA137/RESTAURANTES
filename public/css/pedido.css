@@ -1,0 +1,79 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fce6fb;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Títulos */
+h1, h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Menú visual en grid */
+#menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+/* Botones del menú */
+#menu button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#menu button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Lista de productos añadidos al pedido */
+#pedido-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 20px;
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Descripción del pedido */
+#pedido-descripcion {
+    width: 90%;
+    max-width: 600px;
+    height: 60px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Botón enviar pedido */
+#enviar-pedido {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#enviar-pedido:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}

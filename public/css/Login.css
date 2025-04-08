@@ -1,0 +1,59 @@
+body {
+    background-image: url('/public/img/usuarios/Fondo_Login.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5b057;
+}
+
+.login-container {
+    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #000;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+}
+
+.login-container input::placeholder {
+    color: #eee;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #916f2f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #35270e;
+}

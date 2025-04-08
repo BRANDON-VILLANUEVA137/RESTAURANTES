@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido - Mesa</title>
+    <link rel="stylesheet" href="/public/css/pedido.css">
+</head>
+<body>
+    <h1>Pedido - Mesa <span id="mesa-numero"></span></h1>
+
+    <!-- Menú  y Carta de productos -->
+    <h2>Menu del Dia</h2>
+    <div id="menuDia"></div>
+    <h2>Carta</h2>
+    <div id="menu"></div>
+
+    <!-- Lista de pedidos anteriores -->
+    <h2>Pedidos Anteriores</h2>
+    <ul id="pedidos-existentes"></ul>
+
+    <!-- Pedido actual -->
+    <h2>Pedido Actual</h2>
+    <ul id="pedido-actual"></ul>
+
+    <textarea name="Datos-pedido" id="pedido-descripcion" placeholder="Notas del pedido..."></textarea>
+    <p>Total: $<span id="total">0</span></p>
+    <button id="enviar-pedido">Enviar Pedido</button>
+
+    <script src="/public/js/pedido.js"></script>
+</body>
+</html>
